@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class main {
     private static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
-        Producto manzanas, melocotones, platanos;
-        manzanas = new Producto(Categoria.MANZANA);
-        melocotones = new Producto(Categoria.MELOCOTON);
-        platanos = new Producto(Categoria.PLATANO);
+
+        Producto manzanas = new Producto(Categoria.MANZANA);
+        Producto melocotones = new Producto(Categoria.MELOCOTON);
+        Producto platanos = new Producto(Categoria.PLATANO);
+
         llegadaClientes(manzanas, melocotones, platanos);
     }
 
@@ -19,11 +20,13 @@ public class main {
         System.out.println("** FRUTERIA HNOS PERNIA **");
         System.out.println("Vayan cogiendo sus tickets y guarden cola, por favor.");
 
+        //Bucle encargado de tratar el número de clientes que entran en la frutería
         for (int i = 0; i < Constantes.NUMERO_CLIENTES; i++){
             salir = false;
             System.out.println("Bienvenido cliente nº: " + (i+1) + "\nOfrecemos un decuento del 10% para compras superiores a 10€");
-            while(!salir){
 
+            //Bucle encargado de controlar la compra de cada cliente
+            while(!salir){
                 String tipoFruta = solicitarProducto("Elija que desea entre(" + Categoria.MANZANA + ", " + Categoria.MELOCOTON + " y " + Categoria.PLATANO + ")");
                 int cant = solicitarEntero("¿Cuántos Kg quieres?");
 
@@ -55,13 +58,16 @@ public class main {
                         }
                         break;
                 }
+
                 salir = cuestionarSeguir();
             }
+
             if(factura > Constantes.FACTURA_OFERTA){
                 System.out.println("La factura original es de: " + factura + "€");
                 factura = factura * Constantes.DESCUENTO;
                 System.out.println("Tras nuestra oferta se reduce a un total de : " + factura + "€");
-            }else {
+            }
+            else {
                 System.out.println("La factura a pagar es : " + factura + "€");
             }
         }
