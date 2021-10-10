@@ -1,6 +1,6 @@
 package hipermercado;
 
-public enum Categoria {
+public enum Categoria implements ICategoria{
     ALIMENTOS(7),
     ELECTRONICA(14),
     ROPA(10);
