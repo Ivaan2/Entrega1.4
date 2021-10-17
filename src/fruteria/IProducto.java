@@ -1,9 +1,9 @@
 package fruteria;
 
 public interface IProducto {
-    public int getCantidad();
+    public int getStock();
     public Categoria getCategoria();
     public double getPrecio();
-    public void setCantidad(int cantidad);
+    public void setStock(int stock);
     public void setPrecio(double precio);
 }

@@ -2,25 +2,35 @@ package fruteria;
 
 public class Producto implements IProducto{
     private Categoria categoria;
-    private int cantidad;
+    private int stock;
+    private int cantidadComprada;
     private double precio;
 
     public Producto(Categoria categoria) {
         this.categoria = categoria;
-        this.cantidad = categoria.getStockMaximo();
+        this.stock = categoria.getStockMaximo();
         this.precio = categoria.getPrecio();
+        this.cantidadComprada = 0;
     }
 
     public Categoria getCategoria() {
         return categoria;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getStock() {
+        return stock;
     }
 
-    public void setCantidad(int cantidad){
-        this.cantidad = cantidad;
+    public void setStock(int stock){
+        this.stock = stock;
+    }
+
+    public void setCantidadComprada(int cantidadComprada){
+        this.cantidadComprada = cantidadComprada;
+    }
+
+    public int getCantidadComprada() {
+        return cantidadComprada;
     }
 
     public double getPrecio() {
@@ -29,5 +39,10 @@ public class Producto implements IProducto{
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return categoria + ": " + cantidadComprada + "kg";
     }
 }
