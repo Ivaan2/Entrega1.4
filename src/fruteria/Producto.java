@@ -43,6 +43,6 @@ public class Producto implements IProducto{
 
     @Override
     public String toString() {
-        return categoria + ": " + cantidadComprada + "kg";
+        return categoria + ": " + cantidadComprada + "kg x " + precio + "€/kg";
     }
 }
